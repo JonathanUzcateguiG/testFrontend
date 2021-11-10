@@ -1,0 +1,49 @@
+<div class="container-fluid">
+	<div class="d-flex flex-column h-100 mb-5">
+		<div class="row align-items-center justify-content-start">
+			<div class="offset-md-2 col-md-8 mt-3">
+				<mat-card class="example-card">
+					<mat-card-header>
+						<div mat-card-avatar class="example-header-image"></div>
+						<mat-card-title>Estudiantes</mat-card-title>
+						<mat-card-subtitle>Solicitud Almacenada</mat-card-subtitle>
+					</mat-card-header>
+					<mat-card-content class="mb-2 mt-2">
+						<div class="row align-items-center justify-content-start">
+							<div class="col-4 offset-4">
+								<mat-label>Nombre</mat-label>
+								<p>{{student.name}}</p>
+							</div>
+						</div>
+						<div class="row align-items-center justify-content-start">
+							<div class="col-4 offset-4">
+								<mat-label>Patronus</mat-label>
+								<p>{{student.patronus}}</p>
+							</div>
+						</div>
+						<div class="row align-items-center justify-content-start">
+							<div class="col-4 offset-4">
+								<mat-label>Edad</mat-label>
+								<p>{{student.dateOfBirth | age: 'dd-mm-yyyy' }}</p>
+							</div>
+						</div>
+						<div class="row align-items-center justify-content-start">
+							<div class="col-4 offset-4">
+								<mat-label>Casa</mat-label>
+								<p>{{student.house}}</p>
+							</div>
+						</div>
+
+					</mat-card-content>
+					<mat-card-actions>
+						<div class="row align-items-center justify-content-center">
+							<div class="center">
+								<button mat-flat-button color="warn" [routerLink]="['/student']">Volver</button>
+							</div>
+						</div>
+					</mat-card-actions>
+				</mat-card>
+			</div>
+		</div>
+	</div>
+</div>

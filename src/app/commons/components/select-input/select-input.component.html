@@ -1,0 +1,17 @@
+<mat-form-field appearance="fill">
+	<mat-label>Select</mat-label>
+	<mat-select
+		class="form-control"
+		placeholder="{{ 'selecione' }}"
+		[(ngModel)]="value"
+		name="selectInput"
+		#selectInput="ngModel"
+		(selectionChange)="selectionChange($event)">
+		<mat-option id="options" [value]="" [attr.selected]="!value || value == null|| value == undefined">
+			{{ 'selecione' }}
+		</mat-option>
+		<mat-option id="options" *ngFor="let itemOption of options" [value]="itemOption.value">
+			{{ itemOption?.text }}
+		</mat-option>
+	</mat-select>
+</mat-form-field>

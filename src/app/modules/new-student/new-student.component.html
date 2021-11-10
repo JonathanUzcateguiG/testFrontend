@@ -1,0 +1,70 @@
+<div class="container-fluid">
+	<div class="d-flex flex-column h-100 mb-5">
+		<div class="row align-items-center justify-content-start">
+			<div class="offset-md-2 col-md-8 mt-3">
+				<mat-card class="example-card">
+					<mat-card-header>
+						<div mat-card-avatar class="example-header-image"></div>
+						<mat-card-title>Estudiantes</mat-card-title>
+						<mat-card-subtitle>Nueva Solicitud</mat-card-subtitle>
+					</mat-card-header>
+					<mat-card-content class="mb-2 mt-2">
+						<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+							<div class="row align-items-center justify-content-start">
+								<div class="col-md-4 offset-4">
+									<mat-form-field appearance="legacy">
+										<mat-label>Nombre</mat-label>
+										<input matInput placeholder="Nombre" formControlName="name" required>
+										<mat-hint>Nombre completo</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row align-items-center justify-content-start">
+								<div class="col-md-4 offset-4">
+									<mat-form-field appearance="legacy">
+										<mat-label>Patronus</mat-label>
+										<input matInput placeholder="Patronus" formControlName="patronus" required>
+										<mat-hint>Encantamiento Patronus</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row align-items-center justify-content-start">
+								<div class="col-md-4 offset-4">
+									<mat-form-field appearance="legacy">
+										<mat-label>Fecha de nacimiento</mat-label>
+										<input matInput [matDatepicker]="dpDateOfBirth" formControlName="dateOfBirth" required [disabled]="true">
+										<mat-datepicker-toggle matSuffix [for]="dpDateOfBirth"></mat-datepicker-toggle>
+										<mat-datepicker #dpDateOfBirth disabled="false"></mat-datepicker>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="row align-items-center justify-content-start">
+								<div class="col-md-4 offset-4">
+									<mat-form-field appearance="fill">
+										<mat-label>Select</mat-label>
+										<mat-select class="form-control" placeholder="{{ 'selecione' }}" formControlName="house" required>
+											<mat-option id="options" [value]="" [attr.selected]="!student.house || student.house == null|| student.house == undefined">
+												{{ 'selecione' }}
+											</mat-option>
+											<mat-option id="options" *ngFor="let itemOption of options" [value]="itemOption.value">
+												{{ itemOption?.text }}
+											</mat-option>
+										</mat-select>
+									</mat-form-field>
+								</div>
+							</div>
+						</form>
+					</mat-card-content>
+					<mat-card-actions>
+							<div class="row align-items-center justify-content-center">
+								<div class="center">
+									<button mat-flat-button color="primary" type="submit" [disabled]="!profileForm.valid" (click)="saveStudent()">Guardar</button>
+									<button mat-flat-button color="warn" [routerLink]="['/student']">Cancelar</button>
+								</div>
+							</div>
+					</mat-card-actions>
+				</mat-card>
+			</div>
+		</div>
+	</div>
+</div>

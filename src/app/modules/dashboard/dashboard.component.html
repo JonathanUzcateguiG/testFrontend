@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="d-flex flex-column h-100 mb-5">
+        <div class="row align-items-center justify-content-start">
+            <div class="offset-2 col-4 mt-3">
+                <app-select-input [options]="options" (changeValue)="selectionChange($event)">
+                </app-select-input>
+            </div>
+        </div>
+        <div class="row justify-content-center flex-grow-1 mr-5 mb-5">
+            <div class="col-10 mr-5" *ngIf="!isLoading()">
+                <app-table-character [characters]="characters">
+                </app-table-character>
+            </div>
+            <div class="col center" *ngIf="isLoading()">
+                <app-loader>
+                </app-loader>
+            </div>
+        </div>
+    </div>
+</div>
+
+

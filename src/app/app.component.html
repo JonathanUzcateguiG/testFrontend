@@ -1,0 +1,25 @@
+<!-- <mat-drawer-container class="am-container" autosize>
+    <mat-drawer mode="side" opened class="am-side">
+        <mat-action-list>
+            <button mat-list-item routerLinkActive="active" [routerLink]="['/']"> Casas </button>
+            <button mat-list-item routerLinkActive="active" [routerLink]="['/student']"> Estudiantes </button>
+            <button mat-list-item routerLinkActive="active" [routerLink]="['/staff']"> Profesores </button>
+        </mat-action-list>
+    </mat-drawer>
+    <mat-drawer-content class="am-content">
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container> -->
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <!--in here all the content must reside. We will add a navigation header as well-->
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
